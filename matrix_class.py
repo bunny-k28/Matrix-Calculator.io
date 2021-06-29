@@ -281,7 +281,7 @@ class Matrix(MatrixOperation):
 
         for i in range(len(matrix[0])):  # for loop to make a list to store column elements
             self.column_elements.append([])
-        print(self.column_elements)  # statement for testing
+        # print(self.column_elements)  # statement for testing
 
         """code to store column elements"""
 
@@ -290,7 +290,7 @@ class Matrix(MatrixOperation):
         while counter_var < len(self.column_elements):
             counter_index = 0
 
-            while counter_index < len(matrix[0]):
+            while counter_index < len(matrix):
                 col_element = matrix[counter_index][counter_var]
                 self.column_elements[counter_var].append(col_element)
                 counter_index += 1
