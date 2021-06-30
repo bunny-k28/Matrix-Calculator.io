@@ -39,13 +39,13 @@ if __name__ == '__main__':
 
                     mat1 = Matrix().__formMatrix__(rows, cols)
                     # print(matrix1)
-                    Matrix().__getMatrix__(mat1)
+                    Matrix().__printMatrix__(mat1)
                     print()
 
                 elif counterVar1 == 2:
                     mat2 = Matrix().__formMatrix__(rows, cols)
                     # print(matrix2)
-                    Matrix().__getMatrix__(mat2)
+                    Matrix().__printMatrix__(mat2)
                     print()
 
                 counterVar1 += 1
@@ -57,7 +57,7 @@ if __name__ == '__main__':
 
                 matSum = Matrix().add(matrix1=mat1, matrix2=mat2)
                 print('The SUM of your matrices is:- \n')
-                Matrix().__getMatrix__(matrix_2b_print=matSum)
+                Matrix().__printMatrix__(matrix_2b_print=matSum)
 
             else:
                 cprint(text='PropertyError: The order of Matrix1 and Matrix2 are not same!!',
@@ -81,13 +81,13 @@ if __name__ == '__main__':
 
                     mat1 = Matrix().__formMatrix__(rows, cols)
                     # print(matrix1)
-                    Matrix().__getMatrix__(mat1)
+                    Matrix().__printMatrix__(mat1)
                     print()
 
                 elif counterVar1 == 2:
                     mat2 = Matrix().__formMatrix__(rows, cols)
                     # print(matrix2)
-                    Matrix().__getMatrix__(mat2)
+                    Matrix().__printMatrix__(mat2)
                     print()
 
                 counterVar1 += 1
@@ -99,7 +99,7 @@ if __name__ == '__main__':
 
                 matDifference = Matrix().subtract(matrix1=mat1, matrix2=mat2)
                 print('The DIFFERENCE of your matrices is:- \n')
-                Matrix().__getMatrix__(matrix_2b_print=matDifference)
+                Matrix().__printMatrix__(matrix_2b_print=matDifference)
 
             else:
                 cprint(text='PropertyError: The order of Matrix1 and Matrix2 are not same!!',
@@ -127,13 +127,13 @@ if __name__ == '__main__':
 
                     mat1 = Matrix().__formMatrix__(rows, cols)
                     # print(matrix1)
-                    Matrix().__getMatrix__(mat1)
+                    Matrix().__printMatrix__(mat1)
                     print()
 
                 elif counterVar1 == 2:
                     mat2 = Matrix().__formMatrix__(rows, cols)
                     # print(matrix2)
-                    Matrix().__getMatrix__(mat2)
+                    Matrix().__printMatrix__(mat2)
                     print()
 
                 counterVar1 += 1
@@ -145,7 +145,7 @@ if __name__ == '__main__':
 
                 matProduct = Matrix().multiply(matrix1=mat1, matrix2=mat2)
                 print('The PRODUCT of your matrices is:- \n')
-                Matrix().__getMatrix__(matrix_2b_print=matProduct)
+                Matrix().__printMatrix__(matrix_2b_print=matProduct)
 
             else:
                 cprint(text='PropertyError: The column of matrix1 != row of matrix2',
@@ -165,13 +165,30 @@ if __name__ == '__main__':
 
             Mat = Matrix().__formMatrix__(rows, cols)
             # print(matrix1)
-            Matrix().__getMatrix__(Mat)
+            Matrix().__printMatrix__(Mat)
             print()
 
             multiplyInt = int(input('Enter the integer you want to multiply with your matrix:- '))
 
             scalarMat = Matrix().scalar_multiply(integer=multiplyInt, matrix=Mat)
-            Matrix().__getMatrix__(scalarMat)
+            Matrix().__printMatrix__(scalarMat)
+            
+        elif choice == '5' or choice == 'Find Transpose' or choice == 'Transpose':
+            
+            print('\n\t\t\t\t\t\t\tMAKE YOUR MATRICES')
+
+            print(f'Matrix:-\n')
+            rows = int(input('Enter the no. of rows:- '))
+            cols = int(input('Enter the no. columns:- '))
+            print()
+
+            Mat = Matrix().__formMatrix__(rows, cols)
+            # print(matrix1)
+            Matrix().__printMatrix__(Mat)
+            print()
+
+            transpose = Matrix().__getTranspose__(matrix=Mat)
+            Matrix().__printMatrix__(transpose)
 
         else:
             cprint('OutOfMenuError: No such option in menu.', color='red', attrs=['bold'])
