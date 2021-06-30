@@ -13,7 +13,8 @@ menu = """
 \t2. Subtraction
 \t3. Multiplication (not working)
 \t4. Scalar Multiplication
-\t5. Find Determinant\n
+\t5. Find Transpose
+\t6. Find Determinant\n
 """
 
 
@@ -27,9 +28,10 @@ class MatrixOperation:
         self.I_raw_matrix = []  # main matrix container for identity matrix
         self.operational_matrix = []  # the matrix formed after applying operation
         self.column_elements = []  # list to store column elements
-        self.determinant = []  # list to store data of determinant function
+        self.determinant = []  # list to store data of determinant method
+        self.transpose = []  # list to store data of transpose method
 
-    def add(self, matrix1, matrix2):
+    def add(self, matrix1=list, matrix2=list):
         """
             :param: matrix1
             :return: addition of matrix1 && matrix2
@@ -56,7 +58,7 @@ class MatrixOperation:
 
         return self.operational_matrix
 
-    def subtract(self, matrix1, matrix2):
+    def subtract(self, matrix1=list, matrix2=list):
         """
             :param: matrix1
             :return: subtraction of matrix1 && matrix2
@@ -83,7 +85,7 @@ class MatrixOperation:
 
         return self.operational_matrix
 
-    def scalar_multiply(self, integer, matrix):
+    def scalar_multiply(self, integer=int, matrix=list):
         """
             :param: integer && matrix1
             :return: product of matrix with integer
@@ -112,7 +114,7 @@ class MatrixOperation:
 
         return self.operational_matrix
 
-    def multiply(self, matrix1, matrix2):
+    def multiply(self, matrix1=list, matrix2=list):
         """
             :param: matrix1
             :return: multiplication of matrix1 && matrix2
@@ -184,7 +186,7 @@ class Matrix(MatrixOperation):
         self.column_elements = []  # list to store column elements
         self.counterVar1 = 1
 
-    def __formMatrix__(self, rows=int(), cols=int(), type=None):  # function to make matrix with 2 integer parameters
+    def __formMatrix__(self, rows=int, cols=int, type=None):  # function to make matrix with 2 integer parameters
         """
             :param: rows, columns & type
             :return: matrix of M(rows) x N(columns)
@@ -215,14 +217,14 @@ class Matrix(MatrixOperation):
 
         return self.raw_matrix
 
-    def __getMatrix__(self, matrix_2b_print):  # function to print the formed matrix in a matrix format
+    def __printMatrix__(self, matrix_2b_print=list):  # function to print the formed matrix in a matrix format
         """
         :param: matrix
         :return: list (final matrix) in matrix format
         :argument: list as matrix
         """
 
-        print(f'Your Matrix{self.counterVar1}:-')
+        print(f'Your Matrix:-')
 
         for i in matrix_2b_print:  # for loop to read the main matrix container
 
@@ -230,9 +232,9 @@ class Matrix(MatrixOperation):
                 print(f'\t{j}', end='')
 
             print()  # print statement to add new empty line
-        self.counterVar1 += 1
+            
 
-    def __identityMatrix__(self, rows=int(), cols=int()):
+    def __identityMatrix__(self, rows=int, cols=int):
         """
             :param: rows && cols
             :return: Identity matrix
@@ -272,7 +274,7 @@ class Matrix(MatrixOperation):
         return self.I_raw_matrix
         # print(self.I_raw_matrix)
 
-    def __getColumnElements__(self, matrix):
+    def __getColumnElements__(self, matrix=list):
         """
         :param: matrix
         :return: list of column elements
@@ -306,17 +308,37 @@ class Matrix(MatrixOperation):
         :argument: matrix && boolean value
         """
 
-        # else:
-        #     cprint(text='OrderError: The order of the matrix must be 2x2 or more than that.',
-        #            color='red', attrs=['bold'])
 
+    def __getTranspose__(self, matrix=list):
+        """
+        :param: matrix
+        :return: list
+        :argument: list
+        """
 
-    def __getTranspose__(self, matrix):
-        pass
+        for i in range(len(matrix[0])):  # for loop to make a list to store column elements
+            self.transpose.append([])
 
+        # print(self.transpose)  # statement for testing
 
-    @staticmethod
-    def __getProperties__(matrix):
+        """code to store column elements"""
+
+        counter_var = 0
+
+        while counter_var < len(self.transpose):
+            counter_index = 0
+
+            while counter_index < len(matrix):
+                T_element = matrix[counter_index][counter_var]
+                self.transpose[counter_var].append(T_element)
+                counter_index += 1
+
+            counter_var += 1
+
+        return self.transpose
+
+    
+    def __getProperties__(self, matrix):
         """
         :param: matrix
         :return: properties of matrix in dictionary
