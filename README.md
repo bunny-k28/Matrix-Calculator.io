@@ -30,7 +30,6 @@ Python code to solve your Matrix problems in a easy way. You can use this calcul
 2.2. In the ./main_UI.py/ file/code File Determinant option is not available
 
 # 3. Progress
-
 3.1. Working on the multiplication function and __getDeterminent__ function
 
 3.2. In parall working on the GUI of the calculator
