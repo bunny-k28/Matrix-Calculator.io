@@ -11,7 +11,7 @@
     here that class is imported using static import.
 """
 
-import functions as M
+import clac_methods as M
 from termcolor import cprint
 
 
